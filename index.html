@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d16">
+  <meta name="description" content="R36S Game Hub — thư viện game port dành cho R36S, DarkOS và PortMaster.">
+  <title>R36S Game Hub — Game library</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="R36S Game Hub trang chủ">
+      <img src="assets/logo.svg" alt="" class="brand-mark">
+      <span>R36S <b>GAME HUB</b><small>YOUR PORTABLE ARCADE</small></span>
+    </a>
+    <nav class="nav">
+      <a class="active" href="#home">Trang chủ</a><a href="#library">Thư viện game</a><a href="#guide">Hướng dẫn</a>
+    </nav>
+    <a class="github-link" href="https://github.com/" target="_blank" rel="noreferrer"><span>↗</span> GitHub</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Mở menu">☰</button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><i></i> COMMUNITY PORT LIBRARY</div>
+        <h1>YOUR GAMES.<br><em>YOUR</em> POCKET.</h1>
+        <p>Khám phá thư viện game port dành cho R36S. Tìm game, xem thông tin tương thích và tải bản phát hành từ nguồn được cung cấp.</p>
+        <div class="hero-actions"><a class="btn primary" href="#library">Khám phá game <span>↓</span></a><a class="btn ghost" href="#guide">Cách cài đặt</a></div>
+        <div class="hero-stats"><div><strong id="gameCount">06</strong><span>GAME LISTED</span></div><div><strong>R36S</strong><span>HANDHELD</span></div><div><strong>24/7</strong><span>OPEN LIBRARY</span></div></div>
+      </div>
+      <div class="hero-art">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="hero-glow"></div>
+        <img src="assets/handheld.svg" alt="Minh họa máy chơi game cầm tay R36S" class="handheld">
+        <div class="floating-tag tag-top"><span class="dot green"></span> PORTMASTER READY</div>
+        <div class="floating-tag tag-bottom">PRESS START <b>▶</b></div>
+      </div>
+    </section>
+
+    <section class="library section" id="library">
+      <div class="section-heading">
+        <div><div class="eyebrow">THE COLLECTION</div><h2>GAME <em>LIBRARY</em></h2><p class="muted">Chọn một tựa game để xem thông tin và liên kết tải.</p></div>
+        <div class="library-count"><span id="visibleCount">06</span> TITLES</div>
+      </div>
+      <div class="toolbar">
+        <label class="searchbox"><span>⌕</span><input id="searchInput" type="search" placeholder="Tìm tên game..." autocomplete="off"><kbd>⌘ K</kbd></label>
+        <div class="filters" id="filters">
+          <button class="filter active" data-filter="all">Tất cả</button><button class="filter" data-filter="action">Hành động</button><button class="filter" data-filter="adventure">Phiêu lưu</button><button class="filter" data-filter="arcade">Arcade</button>
+        </div>
+      </div>
+      <div class="game-grid" id="gameGrid" aria-live="polite"></div>
+      <div class="empty-state" id="emptyState" hidden>Không tìm thấy game phù hợp. Thử từ khóa khác nhé.</div>
+    </section>
+
+    <section class="guide section" id="guide">
+      <div class="section-heading"><div><div class="eyebrow">GET STARTED</div><h2>READY TO <em>PLAY?</em></h2><p class="muted">Quy trình cơ bản để cài một port trên R36S.</p></div></div>
+      <div class="steps">
+        <article class="step"><span>01</span><div class="step-icon">⇩</div><h3>TẢI PORT</h3><p>Tải gói port từ liên kết phát hành chính thức hoặc nguồn do tác giả cung cấp.</p></article>
+        <article class="step"><span>02</span><div class="step-icon">▣</div><h3>CHÉP VÀO MÁY</h3><p>Giải nén và chép đúng thư mục theo hướng dẫn đi kèm của port.</p></article>
+        <article class="step"><span>03</span><div class="step-icon">▶</div><h3>THÊM GAME DATA</h3><p>Một số port yêu cầu dữ liệu game gốc. Chỉ sử dụng dữ liệu bạn có quyền sử dụng.</p></article>
+      </div>
+      <div class="notice"><span>ⓘ</span><p><b>Lưu ý:</b> Khả năng tương thích phụ thuộc phiên bản hệ điều hành, cấu hình máy và từng port. Website này là thư viện cộng đồng, không phân phối ROM, APK hoặc dữ liệu game có bản quyền khi chưa được phép.</p></div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><img src="assets/logo.svg" alt=""><span>R36S <b>GAME HUB</b><small>YOUR PORTABLE ARCADE</small></span></a><p>Made for handheld gaming fans. <span>© <span id="year"></span> R36S Game Hub</span></p><a href="https://github.com/" target="_blank" rel="noreferrer">Contribute on GitHub ↗</a></footer>
+
+  <div class="modal-backdrop" id="modal" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Đóng">×</button>
+      <div class="modal-art" id="modalArt"></div>
+      <div class="modal-content"><div class="eyebrow" id="modalCategory"></div><h2 id="modalTitle"></h2><p id="modalDescription"></p><div class="modal-meta" id="modalMeta"></div><a class="btn primary download-btn" id="modalDownload" href="#" target="_blank" rel="noreferrer">Mở trang tải ↗</a><small class="modal-note">Liên kết tải do quản trị viên website cập nhật.</small></div>
+    </section>
+  </div>
+  <script src="games.js"></script><script src="app.js"></script>
+</body>
+</html>
